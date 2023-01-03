@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/objects/player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/objects/TileSet.tres" type="TileSet" id=2]
+[ext_resource path="res://assets/objects/level/LevelPiece.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/objects/level/LevelPieces.gd" type="Script" id=4]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="LevelPieces" type="Node2D" parent="."]
+script = ExtResource( 4 )
+
+[node name="LevelPiece" parent="LevelPieces" instance=ExtResource( 3 )]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 72, 120 )
+current = true
+zoom = Vector2( 0.375, 0.375 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 32, 80 )
